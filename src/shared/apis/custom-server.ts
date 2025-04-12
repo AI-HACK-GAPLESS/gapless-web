@@ -32,9 +32,6 @@ export const useCustomServer = (
 ) => {
   return useMutation({
     mutationFn: customServer,
-    onSuccess: () => {
-      toast.success('successfully customized the server.');
-    },
     onError: () => {
       toast.error('failed to customize the server.');
     },
