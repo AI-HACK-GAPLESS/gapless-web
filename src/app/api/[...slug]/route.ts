@@ -4,9 +4,9 @@ const API_URL = 'http://13.124.31.120:8000/api';
 
 export async function GET(
   req: Request,
-  { params }: { params: { slug: string[] } }
+  { params }: { params: Promise<{ slug: string[] }> }
 ) {
-  const slug = await params.slug;
+  const { slug } = await params;
   const pathname = '/' + slug.join('/');
   const query = req.url.split('?')[1];
   const url = `${API_URL}${pathname}` + (query ? '?' + query : '');
@@ -48,7 +48,7 @@ async function proxy(req: Request, method: string, pathname: string) {
 
 export async function POST(
   req: Request,
-  { params }: { params: { slug: string[] } }
+  { params }: { params: Promise<{ slug: string[] }> }
 ) {
   const { slug } = await params;
   return proxy(req, 'POST', '/' + slug.join('/'));
@@ -56,7 +56,7 @@ export async function POST(
 
 export async function PUT(
   req: Request,
-  { params }: { params: { slug: string[] } }
+  { params }: { params: Promise<{ slug: string[] }> }
 ) {
   const { slug } = await params;
   return proxy(req, 'PUT', '/' + slug.join('/'));
@@ -64,7 +64,7 @@ export async function PUT(
 
 export async function DELETE(
   req: Request,
-  { params }: { params: { slug: string[] } }
+  { params }: { params: Promise<{ slug: string[] }> }
 ) {
   const { slug } = await params;
   return proxy(req, 'DELETE', '/' + slug.join('/'));
