@@ -1,57 +1,67 @@
-import Image from "next/image";
+import { Button } from '@/shared/components/ui/button';
+import Image from 'next/image';
+import Link from 'next/link';
+
+const ROUTES = {
+  DISCORD:
+    'https://discord.com/oauth2/authorize?client_id=1360520654771847211&permissions=18428094303232&integration_type=0&scope=bot',
+  SLACK: '',
+};
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="min-h-svh">
+      <header className="fixed top-0 left-0 h-12 w-full flex justify-center items-center bg-[#171617] border-b border-[#343134]">
+        <div className="container flex gap-4">
+          <Image src="/logo.png" alt="Logo" width={24} height={24} />
+          <span className="text-[#A9ABB8] font-bold">GAPLESS</span>
         </div>
+      </header>
+      <main className="w-full flex flex-col bg-gradient-to-b from-[#1A1C21] to-[#2B2D36]">
+        <section className="relative h-screen flex flex-col justify-center items-center overflow-hidden">
+          <div className="relative z-50 flex flex-col justify-center items-center">
+            <Image
+              src="/logo.png"
+              alt="GAPLESS"
+              width={140}
+              height={140}
+              priority
+            />
+
+            <h3 className="mt-20 text-[#A9ABB8] font-semibold text-lg">
+              TEAM AI_COHOLIC
+            </h3>
+            <h2 className="mt-4 font-bold text-8xl">GAPLESS</h2>
+
+            <div className="mt-20 flex gap-8">
+              <Link href={ROUTES.DISCORD} target="_blank">
+                <Button className="bg-[#5865F2] hover:scale-97 hover:bg-[#5865F2] text-white">
+                  <Image
+                    src="/discord.png"
+                    alt="Discord icon"
+                    width={24}
+                    height={24}
+                  />
+                  Invite Discord
+                </Button>
+              </Link>
+              <Link href={ROUTES.SLACK} target="_blank">
+                <Button className="bg-white text-black hover:bg-white hover:scale-97">
+                  <Image
+                    src="/slack.png"
+                    alt="Slack icon"
+                    width={24}
+                    height={24}
+                  />
+                  Invite Slack
+                </Button>
+              </Link>
+            </div>
+          </div>
+          <div className="absolute w-[120%] h-[50%] bottom-0 bg-gradient-to-b from-[#FF2081] to-[#3EBBC3] rounded-t-[50%] opacity-50 blur-xl" />
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
+      {/* <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
         <a
           className="flex items-center gap-2 hover:underline hover:underline-offset-4"
           href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
@@ -97,7 +107,7 @@ export default function Home() {
           />
           Go to nextjs.org →
         </a>
-      </footer>
+      </footer> */}
     </div>
   );
 }
