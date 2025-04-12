@@ -1,5 +1,9 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import {
+  ReactQueryProvider,
+  ToastProvider,
+} from '@/shared/components/providers';
 
 export const metadata: Metadata = {
   title: 'Gapless',
@@ -44,7 +48,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`antialiased`}>{children}</body>
+      <body className={`antialiased`}>
+        <ToastProvider>
+          <ReactQueryProvider>{children}</ReactQueryProvider>
+        </ToastProvider>
+      </body>
     </html>
   );
 }
