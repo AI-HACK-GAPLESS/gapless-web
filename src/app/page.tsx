@@ -11,7 +11,7 @@ const ROUTES = {
 export default function Home() {
   return (
     <div className="min-h-svh">
-      <header className="fixed top-0 left-0 h-12 w-full flex justify-center items-center bg-[#171617] border-b border-[#343134]">
+      <header className="px-10 fixed top-0 left-0 h-16 w-full flex justify-center items-center border-b border-[#343134]">
         <div className="container flex gap-4">
           <Image src="/logo.png" alt="Logo" width={24} height={24} />
           <span className="text-[#A9ABB8] font-bold">GAPLESS</span>
@@ -45,7 +45,8 @@ export default function Home() {
                   Invite Discord
                 </Button>
               </Link>
-              <Link href={ROUTES.SLACK} target="_blank">
+              {/* <Link href={ROUTES.SLACK} target="_blank"> */}
+              <Link href="#">
                 <Button className="bg-white text-black hover:bg-white hover:scale-97">
                   <Image
                     src="/slack.png"
