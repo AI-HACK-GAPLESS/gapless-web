@@ -31,9 +31,6 @@ export const useCreateEntries = (
 ) => {
   return useMutation({
     mutationFn: createDictEntries,
-    onSuccess: () => {
-      toast.success('successfully create entries.');
-    },
     onError: () => {
       toast.error('failed to create entries');
     },
