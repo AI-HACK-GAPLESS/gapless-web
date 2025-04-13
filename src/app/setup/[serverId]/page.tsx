@@ -17,7 +17,10 @@ const Page = () => {
 
   const [values, setValues] = React.useState({ title: '', description: '' });
 
-  const { data, isLoading } = useGutIsRegistered({ serverId, platform });
+  const { data, isLoading } = useGutIsRegistered({
+    serverId,
+    platform,
+  });
   const submitMutation = useCustomServer();
 
   const onChange = (
@@ -53,7 +56,15 @@ const Page = () => {
     <main className="w-full p-10 min-h-svh bg-[#15161A] flex flex-col">
       {isLoading ? (
         <div className="flex flex-col gap-8 items-center my-auto">
-          <Image src="/logo.png" alt="Logo" width={100} height={100} priority />
+          <Image
+            src="/logo.png"
+            alt="Logo"
+            width={100}
+            height={100}
+            priority
+            className="animate-spin"
+            style={{ animationDuration: '2s' }}
+          />
           <h1 className="text-[#A9ABB8] font-semibold text-2xl">Loading...</h1>
         </div>
       ) : data?.is_registered ? (
