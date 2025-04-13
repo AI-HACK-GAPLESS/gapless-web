@@ -43,7 +43,7 @@ export const useGutIsRegistered = ({
       const res = await getIsRegistered(serverId, platform);
 
       if (res.is_registered) {
-        return replace('/dict/' + serverId);
+        replace('/dict/' + serverId);
       }
 
       return res;
