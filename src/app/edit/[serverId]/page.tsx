@@ -55,6 +55,8 @@ const Page = () => {
     setData(prevData as any);
   }, [prevData]);
 
+  const disabled = createMutation.isPending;
+
   return (
     <main className="w-full p-10 min-h-svh bg-[#15161A] flex flex-col">
       <div className="flex flex-col gap-8 items-center">
@@ -94,10 +96,12 @@ const Page = () => {
         </div>
 
         <Button
-          // disabled={disabled}
+          disabled={disabled}
           onClick={onCreate}
           className={cn(
-            'bg-[#FF006F] text-white hover:bg-[#FF006F] hover:scale-97'
+            disabled
+              ? 'bg-[#2B2D36] hover:bg-[#2B2D36] cursor-not-allowed'
+              : 'bg-[#FF006F] text-white hover:bg-[#FF006F] hover:scale-97'
           )}
         >
           {createMutation.isPending ? 'CREATING...' : 'CREATE'}
